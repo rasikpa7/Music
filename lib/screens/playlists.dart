@@ -84,7 +84,7 @@ class _PlaylistsState extends State<Playlists> {
                               Radius.circular(20.0).r,
                             ),
                           ),
-                          color: Color.fromARGB(255, 241, 237, 237),
+                          color: Colors.blue,
                           elevation: 50.r,
                           icon: const Icon(
                             Icons.more_vert_outlined,
@@ -96,14 +96,14 @@ class _PlaylistsState extends State<Playlists> {
                               value: 0,
                               child: Text(
                                 "Remove playlist",
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
                             const PopupMenuItem(
                               value: 1,
                               child: Text(
                                 "Rename",
-                                style: TextStyle(color: Colors.black),
+                                style: TextStyle(color: Colors.white),
                               ),
                             ),
                           ],
@@ -154,7 +154,7 @@ class _PlaylistsState extends State<Playlists> {
                         ),
                         leading: Icon(
                           Icons.music_note,
-                          color: Colors.white,
+                          color: Colors.blueAccent,
                         ),
                       ),
                   separatorBuilder: (ctx, index) => Divider(),

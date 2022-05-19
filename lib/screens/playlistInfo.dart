@@ -95,7 +95,7 @@ class _PlaylistInfoState extends State<PlaylistInfo> {
                                       Radius.circular(20.0),
                                     ),
                                   ),
-                                  color: Colors.grey, elevation: 30.r,
+                                  color: Colors.blue, elevation: 30.r,
                                   icon: const Icon(Icons
                                       .more_vert_outlined), //don't specify icon if you want 3 dot menu
                                   // color: Colors.blue,
@@ -104,7 +104,7 @@ class _PlaylistInfoState extends State<PlaylistInfo> {
                                       value: 0,
                                       child: Text(
                                         "Delete song",
-                                        style: TextStyle(color: Colors.black),
+                                        style: TextStyle(color: Colors.white),
                                       ),
                                     ),
                                

@@ -79,15 +79,17 @@ class _SearchPageState extends State<SearchPage> {
                         ignoreCase: true,
                       ),
                       builder: (context, allSongs) {
-                        if (allSongs.data == null)
-                          return Center(
-                              child: const CircularProgressIndicator());
+                        if (allSongs.data == null) {
+                          return const Center(
+                              child: CircularProgressIndicator());
+                        }
 
-                        if (allSongs.data!.isEmpty)
+                        if (allSongs.data!.isEmpty) {
                           return const Text(
                             "Nothing found!",
                             style: TextStyle(color: Colors.black),
                           );
+                        }
 
                         List<SongModel> songmodel = allSongs.data!;
 
@@ -241,6 +243,10 @@ class _SearchPageState extends State<SearchPage> {
                                             //nullArtworkWidget: Icon(Icons.music_note),
                                             id: allSongs.data![index].id,
                                             type: ArtworkType.AUDIO,
+                                             nullArtworkWidget: Padding(
+                                        padding: const EdgeInsets.only(top:8.0).r,
+                                        child: const Icon(Icons.music_note,color: Colors.blueAccent,),
+                                      ),
                                           ),
                                         ),
                                       ),

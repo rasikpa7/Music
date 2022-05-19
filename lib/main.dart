@@ -109,7 +109,7 @@ class _HomeState extends State<Home> {
                     type: ArtworkType.AUDIO,
                        nullArtworkWidget: Padding(
                                         padding: const EdgeInsets.only(top:8.0).r,
-                                        child: const Icon(Icons.music_note),
+                                        child: const Icon(Icons.music_note,color: Colors.blueAccent,),
                                       ),
                   ),
                   title: SizedBox(

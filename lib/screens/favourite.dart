@@ -113,7 +113,7 @@ class _FavouriteState extends State<Favourite> {
                                                 const Radius.circular(20.0).r,
                                               ),
                                             ),
-                                            color: Colors.black,
+                                            color: Colors.blue,
                                             elevation: 30.r,
                                             icon: const Icon(Icons
                                                 .more_vert_outlined), //don't specify icon if you want 3 dot menu
