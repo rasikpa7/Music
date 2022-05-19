@@ -51,6 +51,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  //int a;
   int currentIndex = 1;
   final screens = [
     Favourite(),
