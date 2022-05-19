@@ -29,7 +29,7 @@ class _FavouriteState extends State<Favourite> {
         appBar: AppBar(
           centerTitle: true,
           backgroundColor: Colors.black,
-          title: Text('Favourite'),
+          title: const Text('Favourite'),
         ),
         body: FutureBuilder<List<FavoritesEntity>>(
             future: _audioRoom.queryFavorites(
@@ -56,7 +56,7 @@ class _FavouriteState extends State<Favourite> {
               }
               return AnimationLimiter(
                 child: ListView.separated(
-                    physics: BouncingScrollPhysics(
+                    physics: const BouncingScrollPhysics(
                         parent: AlwaysScrollableScrollPhysics()),
                     itemBuilder: (ctx, index) =>
                         AnimationConfiguration.staggeredList(
@@ -68,11 +68,11 @@ class _FavouriteState extends State<Favourite> {
                               horizontalOffset: 30,
                               verticalOffset: 300.0,
                               child: FlipAnimation(
-                                duration: Duration(milliseconds: 3000),
+                                duration: const Duration(milliseconds: 3000),
                                 curve: Curves.fastLinearToSlowEaseIn,
                                 flipAxis: FlipAxis.y,
                                 child: Padding(
-                                  padding:  EdgeInsets.only(
+                                  padding: EdgeInsets.only(
                                       top: 8.0.h, left: 10.w, right: 10.w),
                                   child: Container(
                                     height: 70,
@@ -90,22 +90,31 @@ class _FavouriteState extends State<Favourite> {
                                                     builder: (ctx) =>
                                                         PlayerScreen()));
                                           },
-                                          contentPadding: EdgeInsets.symmetric(
-                                              horizontal: 20).r,
+                                          contentPadding: const EdgeInsets.symmetric(
+                                                  horizontal: 20)
+                                              .r,
                                           title: Text(
                                             favorites[index].title,
                                           ),
                                           leading: QueryArtworkWidget(
                                             id: favorites[index].id,
                                             type: ArtworkType.AUDIO,
+                                            nullArtworkWidget: Padding(
+                                              padding: const EdgeInsets.only(
+                                                      top: 5.0)
+                                                  .r,
+                                              child:
+                                                  const Icon(Icons.music_note,color: Colors.blueAccent,),
+                                            ),
                                           ),
                                           trailing: PopupMenuButton(
-                                            shape:  RoundedRectangleBorder(
+                                            shape: RoundedRectangleBorder(
                                               borderRadius: BorderRadius.all(
-                                                Radius.circular(20.0).r,
+                                                const Radius.circular(20.0).r,
                                               ),
                                             ),
-                                            color: Colors.black, elevation: 30.r,
+                                            color: Colors.black,
+                                            elevation: 30.r,
                                             icon: const Icon(Icons
                                                 .more_vert_outlined), //don't specify icon if you want 3 dot menu
                                             // color: Colors.blue,
@@ -126,16 +135,18 @@ class _FavouriteState extends State<Favourite> {
                                                     _audioRoom.deleteFrom(
                                                         RoomType.FAVORITES,
                                                         favorites[index].key);
-Fluttertoast.showToast(
-        msg: "Deleted from favorites",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.SNACKBAR,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.red,
-        textColor: Colors.white,
-        fontSize: 16.0
-    );
-
+                                                    Fluttertoast.showToast(
+                                                        msg:
+                                                            "Deleted from favorites",
+                                                        toastLength:
+                                                            Toast.LENGTH_SHORT,
+                                                        gravity: ToastGravity
+                                                            .SNACKBAR,
+                                                        timeInSecForIosWeb: 1,
+                                                        backgroundColor:
+                                                            Colors.red,
+                                                        textColor: Colors.white,
+                                                        fontSize: 16.0);
                                                   })
                                                 }
                                             },

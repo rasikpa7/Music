@@ -83,6 +83,10 @@ class _PlaylistInfoState extends State<PlaylistInfo> {
                             leading: QueryArtworkWidget(
                               id: widget.songs[index].id,
                               type: ArtworkType.AUDIO,
+                                 nullArtworkWidget: Padding(
+                                        padding: const EdgeInsets.only(top:8.0).r,
+                                        child: const Icon(Icons.music_note,color: Colors.blueAccent,),
+                                      ),
 
                             ),
                             trailing: PopupMenuButton(

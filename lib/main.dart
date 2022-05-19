@@ -107,6 +107,10 @@ class _HomeState extends State<Home> {
                     artworkFit: BoxFit.cover,
                     id: int.parse(playing.playlist.current.metas.id!),
                     type: ArtworkType.AUDIO,
+                       nullArtworkWidget: Padding(
+                                        padding: const EdgeInsets.only(top:8.0).r,
+                                        child: const Icon(Icons.music_note),
+                                      ),
                   ),
                   title: SizedBox(
                     width: 10,

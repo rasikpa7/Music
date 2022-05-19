@@ -109,7 +109,7 @@ class _PlayerScreenState extends State<PlayerScreen> {
                           artworkBorder: BorderRadius.circular(12),
                           artworkFit: BoxFit.cover,
                           nullArtworkWidget:  Icon(
-                            Icons.music_note,
+                            Icons.music_note,color: Colors.blue,
                             size: 200.sp,
                           ),
                           id: int.parse(playing.playlist.current.metas.id!),

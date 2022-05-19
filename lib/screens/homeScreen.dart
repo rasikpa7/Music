@@ -255,7 +255,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                     leading: QueryArtworkWidget(
-                                      //nullArtworkWidget: Icon(Icons.music_note),
+                                      nullArtworkWidget: Padding(
+                                        padding: const EdgeInsets.only(top:8.0).r,
+                                        child: const Icon(Icons.music_note,color: Colors.blueAccent,),
+                                      ),
                                       id: allSongs.data![index].id,
                                       type: ArtworkType.AUDIO,
                                     ),
