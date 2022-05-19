@@ -14,9 +14,9 @@ add/remove songs to favorite
 
 create playlist
 
-rename playlist
+edit playlist
 
-add /remove from playlsit
+add /remove audio to playlsit
 
 search bar  
 
