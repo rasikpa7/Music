@@ -6,7 +6,7 @@ Rhythm app is entirely build using flutter
 
 it allows play audio files from phones directory 
 
-it shows a minibar while ur playing to play , pause,and access other songs easily
+it shows a minibar when any audio is selected  to play , pause,and skip /previous  songs easily
 
 control songs from notification panel
 
