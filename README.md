@@ -11,6 +11,6 @@ add/remove songs to favorite
 create playlist
 rename playlist
 add /remove from playlsit
-search bar 
+search bar  
 
 
