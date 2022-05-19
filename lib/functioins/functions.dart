@@ -128,50 +128,60 @@ void createPlaylist(BuildContext context, void Function(void Function()) setStat
 }
 
 void createPlaylistFrom(BuildContext ctx, VoidCallback refresh) {
+final _formKey = GlobalKey<FormState>();
   final playlistNameController = TextEditingController();   
   //  final _formKey = GlobalKey<FormState>();
   showDialog(
       barrierDismissible: false,
       context: ctx,
-      builder: (ctx1) => AlertDialog(
-            content: TextFormField(
-              // validator: (value) {
-              //     if(value!.isEmpty||value==null||value.trim()==''){
-              //       return 'Name required';
-
-              //     }
-              //   },
-                controller: playlistNameController,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(10.0).r,
-                  ),
-                  //filled: true,
-                  hintStyle: TextStyle(color: Colors.grey[600]),
-                  hintText: 'Playlist Name',
-                )),
-            actions: [
-              TextButton(
-                  onPressed: () {
-                    Navigator.pop(ctx);
-                  },
-                  child: Text('Cancel')),
-              TextButton(
-                  onPressed: () {
-    //                     if (_formKey.currentState!.validate()) {
-    //   // If the form is valid, display a snackbar. In the real world,
-    //   // you'd often call a server or save the information in a database.
-    // Fluttertoast.showToast(msg: "Name req");
+      builder: (ctx1) => Form(
+        key: _formKey,
+        child: AlertDialog(
+              content: TextFormField(
+             
+               validator: (value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter some text';
+    }
+    return null;
+  },
+                  controller: playlistNameController,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(10.0).r,
+                    ),
+                    //filled: true,
+                    hintStyle: TextStyle(color: Colors.grey[600]),
+                    hintText: 'Playlist Name',
+                  )),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(ctx);
+                    },
+                    child: Text('Cancel')),
+                TextButton(
+                    onPressed: () {
+  
+        
+          // }
+       if (_formKey.currentState!.validate()) {
+   
+     createNewPlaylist(playlistNameController.text);
+                      refresh();
+                      Navigator.pop(ctx);
+                      // dialogBox(context);
+        
+    }
+        
+                    
       
-    // }
-                    createNewPlaylist(playlistNameController.text);
-                    refresh();
-                    Navigator.pop(ctx);
-                    // dialogBox(context);
-                  },
-                  child: Text('Ok'))
-            ],
-          ));
+      
+                    },
+                    child: Text('Ok'))
+              ],
+            ),
+      ));
 }
 
 void createNewPlaylist(String name) {
