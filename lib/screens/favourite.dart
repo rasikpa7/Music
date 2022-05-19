@@ -94,7 +94,7 @@ class _FavouriteState extends State<Favourite> {
                                                   horizontal: 20)
                                               .r,
                                           title: Text(
-                                            favorites[index].title,
+                                            favorites[index].title,overflow: TextOverflow.ellipsis,
                                           ),
                                           leading: QueryArtworkWidget(
                                             id: favorites[index].id,
