@@ -79,7 +79,7 @@ class _PlaylistsState extends State<Playlists> {
                       //       ),
                       ListTile(
                         trailing: PopupMenuButton(
-                          shape:  RoundedRectangleBorder(
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(20.0).r,
                             ),
@@ -110,19 +110,45 @@ class _PlaylistsState extends State<Playlists> {
                           onSelected: (item1) => {
                             if (item1 == 0)
                               {
-                                setState(() {
-                                  _audioRoom
-                                      .deletePlaylist(item.data![index].key);
-                                })
+                                // set up the buttons
+
+                                // show the dialog
+                                showDialog(
+                                  context: context,
+                                  builder: (BuildContext context) {
+                                    return AlertDialog(
+                                      title: Text("Remove playlist"),
+                                      content: Text(
+                                          "Would you like to delete the  playlist?"),
+                                      actions: [
+                                        TextButton(
+                                          child: Text("Cancel"),
+                                          onPressed: () {
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                        TextButton(
+                                          child: Text("Continue"),
+                                          onPressed: () {
+                                            setState(() {
+                                              _audioRoom.deletePlaylist(
+                                                  item.data![index].key);
+                                            });
+                                            Navigator.pop(context);
+                                          },
+                                        ),
+                                      ],
+                                    );
+                                  },
+                                ),
                               },
                             if (item1 == 1)
                               {
                                 dialog(
-                                  context,
-                                  item.data![index].key,
+                                    context,
+                                    item.data![index].key,
 // playlistNameController.text
- item.data![index].playlistName
-                                )
+                                    item.data![index].playlistName)
                               }
                           },
                         ),
@@ -162,11 +188,7 @@ class _PlaylistsState extends State<Playlists> {
             }));
   }
 
-  void dialog(
-    BuildContext context,
-    int key,
-    String str
-  ) {
+  void dialog(BuildContext context, int key, String str) {
     final playlistNameController = TextEditingController(text: str);
     showDialog(
         barrierDismissible: false,
@@ -180,7 +202,7 @@ class _PlaylistsState extends State<Playlists> {
                     ),
                     //filled: true,
                     hintStyle: TextStyle(color: Colors.grey[600]),
-                    hintText:str,
+                    hintText: str,
                   )),
               actions: [
                 TextButton(
@@ -205,3 +227,6 @@ class _PlaylistsState extends State<Playlists> {
   }
 }
 
+showAlertDialog(
+  BuildContext context,
+) {}
